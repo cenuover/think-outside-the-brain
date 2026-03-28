@@ -84,7 +84,7 @@ body.game-level .level-banner {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-0.55em);
+    transform: translateY(-0.22em);
   }
 }
 
@@ -228,7 +228,7 @@ body.game-level .password-panel {
 }
 
 .landing p {
-  color: var(--muted);
+  color: var(--gray);
   line-height: 1.6;
   margin: 0 0 1.5rem;
 }

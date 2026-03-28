@@ -13,8 +13,8 @@ function initLevelBanner() {
     var ch = text[i];
     var wrap = document.createElement("span");
     wrap.className = "level-glyph-wrap";
-    /* ±2% of viewport height (2vh each direction max) */
-    var jitterVh = (Math.random() - 0.5) * 4;
+    /* Random vertical offset (40% of prior ±2vh range after −60% reduction) */
+    var jitterVh = (Math.random() - 0.5) * 1.6;
     wrap.style.setProperty("--jitter", jitterVh + "vh");
 
     var inner = document.createElement("span");

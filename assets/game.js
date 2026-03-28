@@ -3,6 +3,8 @@
  *   password      — correct answer (string)
  *   nextPage      — where to go on success (string path, e.g. "level2.html")
  *   caseSensitive — optional, default false
+ *   whisper       — optional string; if set, logs once to the browser console (devtools)
+ * Any other keys are ignored by this script — fine for notes, nested objects, codenames, etc.
  */
 (function () {
   var form = document.getElementById("password-form");
@@ -19,6 +21,10 @@
       feedback.className = "feedback error";
     }
     return;
+  }
+
+  if (typeof cfg.whisper === "string" && cfg.whisper) {
+    console.log("%c" + cfg.whisper, "color:#8b949e;font-size:12px;font-style:italic");
   }
 
   var caseSensitive = cfg.caseSensitive === true;
