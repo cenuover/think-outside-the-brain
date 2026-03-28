@@ -1,8 +1,9 @@
-(function () {
+function initLevelBanner() {
   var root = document.querySelector(".level-banner[data-level]");
   if (!root) return;
 
   var num = root.getAttribute("data-level") || "1";
+  root.setAttribute("role", "group");
   root.setAttribute("aria-label", "Level " + num);
 
   var text = "LEVEL " + num;
@@ -26,4 +27,10 @@
   }
 
   root.appendChild(frag);
-})();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initLevelBanner);
+} else {
+  initLevelBanner();
+}

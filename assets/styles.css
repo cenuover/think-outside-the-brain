@@ -35,8 +35,8 @@ body {
   padding: 1.5rem 1rem 2rem;
 }
 
-/* Level pages: clue ~30% from top, password dead center */
-body:has(#password-form) {
+/* Level pages: clue ~30% from top, password dead center (body.game-level on each level HTML) */
+body.game-level {
   min-height: 100vh;
   display: block;
   position: relative;
@@ -44,7 +44,7 @@ body:has(#password-form) {
   overflow-x: hidden;
 }
 
-body:has(#password-form) .level-banner {
+body.game-level .level-banner {
   position: absolute;
   top: 70vh;
   left: 50%;
@@ -64,7 +64,7 @@ body:has(#password-form) .level-banner {
   color: var(--text);
   user-select: none;
   pointer-events: none;
-  z-index: 1;
+  z-index: 5;
 }
 
 .level-glyph-wrap {
@@ -88,7 +88,7 @@ body:has(#password-form) .level-banner {
   }
 }
 
-body:has(#password-form) .clue-wrap {
+body.game-level .clue-wrap {
   position: absolute;
   top: 30vh;
   left: 50%;
@@ -99,7 +99,7 @@ body:has(#password-form) .clue-wrap {
   overflow-y: auto;
 }
 
-body:has(#password-form) .password-panel {
+body.game-level .password-panel {
   position: absolute;
   top: 50vh;
   left: 50%;
