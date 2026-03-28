@@ -31,15 +31,15 @@
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    if (!feedback) return;
 
     var guess = normalize(input && input.value);
     if (guess === expected) {
-      feedback.textContent = "Correct. Continuing…";
-      feedback.className = "feedback ok";
       window.location.href = cfg.nextPage;
-    } else {
-      feedback.textContent = "Not quite. Try again.";
+      return;
+    }
+
+    if (feedback) {
+      feedback.textContent = "Incorrect";
       feedback.className = "feedback error";
     }
   });

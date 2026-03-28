@@ -7,7 +7,6 @@
   --text: #e6edf3;
   --muted: #8b949e;
   --accent: #58a6ff;
-  --success: #3fb950;
   --error: #f85149;
   --font: "Segoe UI", system-ui, sans-serif;
   --mono: ui-monospace, "Cascadia Code", "SF Mono", Consolas, monospace;
@@ -36,6 +35,43 @@ body {
   padding: 1.5rem 1rem 2rem;
 }
 
+/* Level pages: clue ~30% from top, password dead center */
+body:has(#password-form) {
+  min-height: 100vh;
+  display: block;
+  position: relative;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body:has(#password-form) .page-title {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  z-index: 1;
+}
+
+body:has(#password-form) .clue-wrap {
+  position: absolute;
+  top: 30vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(calc(100% - 2rem), 36rem);
+  margin: 0;
+  max-height: min(38vh, 100%);
+  overflow-y: auto;
+}
+
+body:has(#password-form) .password-panel {
+  position: absolute;
+  top: 50vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
 .page-title {
   margin: 0 0 0.25rem;
   font-size: 0.75rem;
@@ -45,7 +81,6 @@ body {
   color: var(--muted);
 }
 
-/* Clue sits upper-center */
 .clue-wrap {
   width: min(100%, 36rem);
   margin-top: 0.5rem;
@@ -81,9 +116,8 @@ body {
   font-size: 0.9rem;
 }
 
-/* Password block — visually centered in remaining space */
 .password-panel {
-  width: min(100%, 22rem);
+  width: min(100% - 2rem, 22rem);
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
@@ -145,10 +179,6 @@ body {
 
 .feedback.error {
   color: var(--error);
-}
-
-.feedback.ok {
-  color: var(--success);
 }
 
 /* Landing */
