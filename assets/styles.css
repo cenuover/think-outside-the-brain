@@ -1,0 +1,187 @@
+/* Password game — shared layout for all levels */
+
+:root {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --border: #30363d;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --accent: #58a6ff;
+  --success: #3fb950;
+  --error: #f85149;
+  --font: "Segoe UI", system-ui, sans-serif;
+  --mono: ui-monospace, "Cascadia Code", "SF Mono", Consolas, monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  background-image: radial-gradient(ellipse 120% 80% at 50% -20%, #1f2937 0%, transparent 55%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1rem 2rem;
+}
+
+.page-title {
+  margin: 0 0 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Clue sits upper-center */
+.clue-wrap {
+  width: min(100%, 36rem);
+  margin-top: 0.5rem;
+  margin-bottom: auto;
+  padding: 1.25rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.clue-wrap img,
+.clue-wrap video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 0.5rem 0;
+}
+
+.clue-wrap audio {
+  width: 100%;
+  margin: 0.75rem 0;
+}
+
+.clue-wrap p {
+  margin: 0.5rem 0;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.clue-wrap .hint-muted {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Password block — visually centered in remaining space */
+.password-panel {
+  width: min(100%, 22rem);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.password-panel label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.password-panel input[type="text"],
+.password-panel input[type="password"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: var(--mono);
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.password-panel input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2);
+}
+
+.password-panel button {
+  width: 100%;
+  margin-top: 0.75rem;
+  padding: 0.65rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: filter 0.15s, transform 0.1s;
+}
+
+.password-panel button:hover {
+  filter: brightness(1.08);
+}
+
+.password-panel button:active {
+  transform: scale(0.98);
+}
+
+.feedback {
+  min-height: 1.25rem;
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.feedback.error {
+  color: var(--error);
+}
+
+.feedback.ok {
+  color: var(--success);
+}
+
+/* Landing */
+.landing {
+  text-align: center;
+  max-width: 28rem;
+  margin-top: 3rem;
+}
+
+.landing h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.landing p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+.landing a.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: filter 0.15s;
+}
+
+.landing a.button:hover {
+  filter: brightness(1.08);
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Level 1</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <p class="page-title">Level 1</p>
+
+    <!-- Clue zone: add images, audio, video, extra paragraphs — whatever you want -->
+    <div class="clue-wrap">
+      <p>The next key is not a word — it is a <strong>number</strong>.</p>
+      <p class="hint-muted">If A=1, B=2, … Z=26, what is the sum of the letters in <strong>KEY</strong>?</p>
+      <!-- Example image (uncomment and add a file under assets/):
+      <img src="assets/your-clue.png" alt="Visual clue" />
+      -->
+      <!-- Example audio:
+      <audio controls src="assets/your-clue.mp3"></audio>
+      -->
+    </div>
+
+    <div class="password-panel">
+      <form id="password-form" autocomplete="off">
+        <label for="password-input">Password</label>
+        <input
+          id="password-input"
+          name="password"
+          type="text"
+          inputmode="text"
+          spellcheck="false"
+          placeholder="Type and press Enter"
+        />
+        <button type="submit">Submit</button>
+        <p id="feedback" class="feedback" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <script>
+      // You choose the answer and the exact next file (any path/name you use).
+      window.GAME_LEVEL = {
+        password: "41",
+        nextPage: "level2.html",
+        caseSensitive: false,
+      };
+    </script>
+    <script src="assets/game.js"></script>
+  </body>
+</html>

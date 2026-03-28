@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Level 2</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <p class="page-title">Level 2</p>
+
+    <div class="clue-wrap">
+      <p>You made it. This level is the <strong>finale</strong> in this draft.</p>
+      <p class="hint-muted">The password is the missing word: “The game is ___.”</p>
+    </div>
+
+    <div class="password-panel">
+      <form id="password-form" autocomplete="off">
+        <label for="password-input">Password</label>
+        <input
+          id="password-input"
+          name="password"
+          type="text"
+          inputmode="text"
+          spellcheck="false"
+          placeholder="Type and press Enter"
+        />
+        <button type="submit">Submit</button>
+        <p id="feedback" class="feedback" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <script>
+      // After this level you might send players to "thanks.html" or loop nowhere — your call.
+      window.GAME_LEVEL = {
+        password: "over",
+        nextPage: "win.html",
+        caseSensitive: false,
+      };
+    </script>
+    <script src="assets/game.js"></script>
+  </body>
+</html>
