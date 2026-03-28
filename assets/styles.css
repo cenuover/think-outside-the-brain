@@ -44,13 +44,48 @@ body:has(#password-form) {
   overflow-x: hidden;
 }
 
-body:has(#password-form) .page-title {
+body:has(#password-form) .level-banner {
   position: absolute;
-  top: 1rem;
+  top: 70vh;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.08em;
   margin: 0;
+  padding: 0 0.5rem;
+  max-width: 100%;
+  font-weight: 800;
+  font-size: clamp(2.25rem, 10vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  user-select: none;
+  pointer-events: none;
   z-index: 1;
+}
+
+.level-glyph-wrap {
+  display: inline-block;
+  transform: translateY(var(--jitter, 0vh));
+}
+
+.level-glyph {
+  display: inline-block;
+  animation: levelGlyphFloat 6s ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+}
+
+@keyframes levelGlyphFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.55em);
+  }
 }
 
 body:has(#password-form) .clue-wrap {
@@ -70,15 +105,6 @@ body:has(#password-form) .password-panel {
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
-}
-
-.page-title {
-  margin: 0 0 0.25rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
 }
 
 .clue-wrap {
@@ -175,10 +201,16 @@ body:has(#password-form) .password-panel {
   margin-top: 0.6rem;
   font-size: 0.85rem;
   text-align: center;
+  opacity: 1;
+  transition: opacity 2s ease;
 }
 
 .feedback.error {
   color: var(--error);
+}
+
+.feedback.error.is-fading {
+  opacity: 0;
 }
 
 /* Landing */
